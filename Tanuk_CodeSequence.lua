@@ -1,5 +1,5 @@
 -----------------------------------------------
---- Code Sequence for cheat codes    v1.0.1 ---
+--- Code Sequence for cheat codes    v1.0.2 ---
 --- taken from Toad on discord              ---
 --- https://discord.com/channels/675983554655551509/1078126062753550476/1135205048431951912  ---
 --- and modified by                         ---
@@ -40,6 +40,7 @@ function Tanuk_CodeSequence:update()
             self:reward()
             if not self.isAllowMultipleCalls then
                 self.timerInput:remove()
+                self:remove()
                 self = nil
             end
         end
