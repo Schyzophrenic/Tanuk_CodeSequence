@@ -11,7 +11,7 @@ Once the function is imported, you can easily create potential code with
 ```lua
 -- Example: local myCode = Tanuk_CodeSequence(sequence, callbackReward, [isAllowMultipleCalls])
 local sprCode = Tanuk_CodeSequence({"down", "left", "right", "left", "right"}, function() print("Code Complete") end)
-local sprCode2 = Tanuk_CodeSequence({"up", "down", "up", "down", "left", "right"}, function() print("Konami code") end, true)
+local sprCode2 = Tanuk_CodeSequence({"up", "down", "up", "down", "left", "right"}, function() print("Not the Konami code") end, true)
 ```
 
 ## Parameters
