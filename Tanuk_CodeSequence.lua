@@ -1,5 +1,5 @@
 -----------------------------------------------
---- Code Sequence for cheat codes    v1.0.0 ---
+--- Code Sequence for cheat codes    v1.0.1 ---
 --- taken from Toad on discord              ---
 --- https://discord.com/channels/675983554655551509/1078126062753550476/1135205048431951912  ---
 --- and modified by                         ---
@@ -26,11 +26,7 @@ function Tanuk_CodeSequence:init(sequence, callbackReward, isAllowMultipleCalls)
     self.reward = callbackReward
     self.isAllowMultipleCalls = isAllowMultipleCalls or false
     self.sequenceIndex = 1
-    self.timerInput = pd.timer.new(500, function() 
-        if not pd.buttonIsPressed(self.sequence[self.sequenceIndex]) and pd.getButtonState() ~= 0 then
-            self.sequenceIndex = 1 
-        end
-    end)
+    self.timerInput = pd.timer.new(500, function() self.sequenceIndex = 1 end)
     self.timerInput.repeats = true
     self:add()
 end
