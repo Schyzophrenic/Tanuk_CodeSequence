@@ -8,7 +8,7 @@
 -----------------------------------------------
 
 -- Usage example
--- self.sprCode = Tanuk_CodeSequence("testCode", {"down", "left", "down", "left", "right", "a"}, function() print("Code Complete") end)
+-- self.sprCode = Tanuk_CodeSequence({"down", "left", "down", "left", "right", "a"}, function() print("Code Complete") end)
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -18,11 +18,13 @@ class('Tanuk_CodeSequence').extends(gfx.sprite)
 --- Creates a Cheat code sequence
 -- @param sequence sequence of input, in order, takes the standard Playdate input up, down, left, right, a, b
 -- @param callbackReward function to call when the code is successful
--- @param allowMultipleCalls set to false by default. If set to yes, the code may be triggered multiple times. If set to false, it will only be registered once
-function Tanuk_CodeSequence:init(sequence, callbackReward, allowMultipleCalls)
+-- @param isAllowMultipleCalls set to false by default. If set to yes, the code may be triggered multiple times. If set to false, it will only be registered once
+function Tanuk_CodeSequence:init(sequence, callbackReward, isAllowMultipleCalls)
+    assert(sequence, "An input sequence must be provided")
+    assert(callbackReward, "A callback function is mandatory for the sequence recognition to have any effect")
     self.sequence = sequence
     self.reward = callbackReward
-    self.allowMultipleCalls = allowMultipleCalls or false
+    self.isAllowMultipleCalls = isAllowMultipleCalls or false
     self.sequenceIndex = 1
     self.timerInput = pd.timer.new(500, function() 
         if not pd.buttonIsPressed(self.sequence[self.sequenceIndex]) and pd.getButtonState() ~= 0 then
@@ -40,7 +42,7 @@ function Tanuk_CodeSequence:update()
 
         if self.sequenceIndex > #self.sequence then
             self:reward()
-            if not self.allowMultipleCalls then
+            if not self.isAllowMultipleCalls then
                 self.timerInput:remove()
                 self = nil
             end
