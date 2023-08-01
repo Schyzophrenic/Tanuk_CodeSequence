@@ -5,6 +5,16 @@ Provide a cheat code function / sequence recognition for Playdate games
 ## Import the Code Sequence function
 Add `import "Tanuk_CodeSequence"` where you need the function. 
 Note that the CodeSequence will read inputs but will not stop their propagation.
+**This class relies on timers and sprites, make sure that you import the timer and sprite files and update the both of them in the update loop**
+```lua
+import "CoreLibs/sprites"
+import "CoreLibs/timer"
+
+function playdate.update()
+	gfx.sprite.update()
+	pd.timer.updateTimers()
+end
+```
 
 ## Create a CodeSequence
 Once the function is imported, you can easily create potential code with
