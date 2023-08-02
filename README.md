@@ -1,5 +1,5 @@
 # Tanuk_CodeSequence
-Provide a cheat code function / sequence recognition for Playdate games
+Provide a cheat code function / sequence recognition for Playdate games. Credits are not required, but let me know if you used this code somewhere, it is always nice to hear :))
 
 # Usage
 ## Import the Code Sequence function
