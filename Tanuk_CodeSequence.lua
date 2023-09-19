@@ -1,5 +1,5 @@
 -----------------------------------------------
---- Code Sequence for cheat codes    v2.0.0 ---
+--- Code Sequence for cheat codes    v2.1.0 ---
 --- taken from Toad on discord              ---
 --- https://discord.com/channels/675983554655551509/1078126062753550476/1135205048431951912  ---
 --- and modified by                         ---
